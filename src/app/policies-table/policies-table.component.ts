@@ -18,7 +18,7 @@ export class PoliciesTableComponent implements OnInit {
   public dataSource = new MatTableDataSource<IPolicyModel>();
   public displayedColumns = ['src', 'dest', 'action'];
   public ngOnInit(): void {
-    const apiData = ajax('http://localhost:3333/api/policies').pipe(
+    const apiData = ajax(`http://localhost/api/policies`).pipe(
       map((res: any) => {
         return res.response;
       })
