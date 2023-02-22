@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sample-single-tenant-app/shared/models": ["shared/models/src/index.ts"]
+      "@sample-single-tenant-app/shared/models": [
+        "shared/models/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

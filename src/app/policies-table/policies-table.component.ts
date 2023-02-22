@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ajax } from 'rxjs/internal/ajax/ajax';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
+import { Action, IPolicyModel } from '@sample-single-tenant-app/shared/models';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'sample-single-tenant-app-policies-table',
@@ -8,17 +10,22 @@ import { map } from 'rxjs';
   styleUrls: ['./policies-table.component.scss'],
 })
 export class PoliciesTableComponent implements OnInit {
+  public policies$: BehaviorSubject<IPolicyModel[]> = new BehaviorSubject<
+    IPolicyModel[]
+  >([]);
+
+  public ACTION = Action;
+  public dataSource = new MatTableDataSource<IPolicyModel>();
+  public displayedColumns = ['src', 'dest', 'action'];
   public ngOnInit(): void {
     const apiData = ajax('http://localhost:3333/api/policies').pipe(
       map((res: any) => {
-        console.log('res: ', res);
         return res.response;
       })
     );
-    apiData.subscribe({
-      next(x: any) {
-        console.log('data: ', x);
-      },
+
+    apiData.subscribe((policies) => {
+      this.dataSource.data = policies;
     });
   }
 }

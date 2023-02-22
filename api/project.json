@@ -16,7 +16,6 @@
         "main": "api/src/main.ts",
         "tsConfig": "api/tsconfig.app.json",
         "assets": [
-          "api/src/assets"
         ],
         "isolatedConfig": true,
         "webpackConfig": "api/webpack.config.js"
