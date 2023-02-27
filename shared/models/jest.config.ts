@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'shared-models-shared-models',
+  displayName: 'shared-models',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {

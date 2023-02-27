@@ -1,7 +1,7 @@
 {
-  "name": "shared-models-shared-models",
+  "name": "shared-models",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "../../src",
+  "sourceRoot": "./src",
   "projectType": "library",
   "targets": {
     "build": {
